@@ -1,69 +1,14 @@
 import random
+from hangman_words import word_list
+from hangman_art import stages, logo
 
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
-
-end_of_game = False
-word_list = ["ardvark", "baboon", "camel"]
 chosen_word = random.choice(word_list)
 word_length = len(chosen_word)
 
-
+end_of_game = False
 lives = 6
+
+print(logo)
 
 print(f'Pssst, the solution is {chosen_word}.')
 
@@ -76,9 +21,10 @@ while not end_of_game:
 
     for position in range(word_length):
         letter = chosen_word[position]
+        print(f"Current position: {position}\n Current letter: {letter}\n Guessed letter: {guess}")
         if letter == guess:
-            display[position] = letter 
- 
+            display[position] = letter
+
     if guess not in chosen_word:
         lives -= 1
         if lives == 0:
@@ -90,5 +36,5 @@ while not end_of_game:
     if "_" not in display:
         end_of_game = True
         print("You win.")
-   
-    print (stages[lives])
+
+    print(stages[lives])
