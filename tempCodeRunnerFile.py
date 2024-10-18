@@ -1,5 +1,4 @@
-for letter in chosen_word:
-#     if letter == guess:
-#         print("Right")
-#     else:
-#         print("Wrong")
+n range (0, length):
+        letter = chosen_word[position]
+        if letter == guess:
+            displa
